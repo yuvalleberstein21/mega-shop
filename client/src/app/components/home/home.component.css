@@ -1,0 +1,14 @@
+.disabled {
+  cursor: not-allowed;
+}
+.card {
+  border: 1px solid whitesmoke;
+  border-radius: 3px;
+  height: 400px;
+}
+.card-img-top {
+  height: 200px;
+}
+.card-title {
+  height: 35px;
+}
