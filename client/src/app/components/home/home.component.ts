@@ -4,6 +4,7 @@ import {
   ProductModelServer,
   ServerResponse,
 } from 'src/app/models/product.model';
+// import { CartService } from 'src/app/services/cart.service';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -14,7 +15,11 @@ import { ProductService } from 'src/app/services/product.service';
 export class HomeComponent implements OnInit {
   products: ProductModelServer[] = [];
 
-  constructor(private productSvc: ProductService, private router: Router) {}
+  constructor(
+    private productSvc: ProductService,
+    // private cartService: CartService,
+    private router: Router
+  ) {}
   ngOnInit(): void {
     this.productSvc.getAllProducts().subscribe((prods: ServerResponse) => {
       this.products = prods.products;
@@ -25,4 +30,8 @@ export class HomeComponent implements OnInit {
   selectProduct(id: number) {
     this.router.navigate(['/product', id]).then();
   }
+
+  // AddToCart(id: number) {
+  //   this.cartService.AddProductToCart(id);
+  // }
 }
